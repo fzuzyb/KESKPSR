@@ -65,7 +65,7 @@ For single GPU:
 
 ```bash
 cd codes/config/KESPKSR
-python3 train.py -opt=options/setting1/test/train_setting1_x4.yml
+python3 train.py -opt=options/setting1/train/train_setting1_x4.yml
 ```
 
 For distributed training

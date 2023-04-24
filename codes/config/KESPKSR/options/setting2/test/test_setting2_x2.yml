@@ -1,0 +1,34 @@
+#cd Annotation/ZJJ/KESPKSR-master/KESPKSR-master/codes/config/KESPKSR
+#python3 test.py -opt=options/setting2/test/test_setting2_x4.yml
+name: KESPKNetx2_setting2
+suffix: ~  # add suffix to saved images
+model: blind
+distortion: sr
+scale: 2
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+gpu_ids: [1]
+pca_matrix_path: ../../../pca_matrix/DCLS/pca_aniso_matrix_x2.pth
+
+datasets:
+
+  test0:
+    name: DIV2KRK
+    mode: LQGT
+    dataroot_GT: /home/iv/Annotation/ZJJ/datasets/datasets_berchmark/DIV2KRK/gt.lmdb
+    dataroot_LQ: /home/iv/Annotation/ZJJ/datasets/datasets_berchmark/DIV2KRK/lr_x2.lmdb
+
+#### network structures
+network_G:
+  which_model_G: KESPKNet
+  setting:
+    nf: 64
+    nb: 11
+    n_B: 1
+    ng: 6
+    input_para: 256
+    kernel_size: 11
+    reduction: 1
+
+#### path
+path:
+  pretrain_model_G: /home/iv/Annotation/ZJJ/open-check/Setting2_x2.pth
